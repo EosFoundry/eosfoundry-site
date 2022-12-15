@@ -1,0 +1,79 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #BB3D16;
+  --ifm-color-primary-dark: #AA3714;
+  --ifm-color-primary-darker: #9B3212
+  --ifm-color-primary-darkest: #8D2D10;
+  --ifm-color-primary-light: #C74E29
+  --ifm-color-primary-lighter: #E37452
+  --ifm-color-primary-lightest: #FF9A7A;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-white: #EEE7DD;
+  --ifm-color-black: #0A0A0B;
+  --ifm-color-gray-0: var(--ifm-color-white);
+  --ifm-color-gray-100: #EEE7DD;
+  --ifm-color-gray-200: #D4CDC5;
+  --ifm-color-gray-300: #B9B3AD;
+  --ifm-color-gray-400: #9E9995;
+  --ifm-color-gray-500: #837F7D;
+  --ifm-color-gray-600: #686565;
+  --ifm-color-gray-700: #4D4B4D;
+  --ifm-color-gray-800: #323135;
+  --ifm-color-gray-900: #29282A;
+  --ifm-color-gray-1000: var(--ifm-color-black);
+}
+  /* --ifm-color-primary: #925EA6; */
+  /* --ifm-color-primary-dark: #804B95; */
+  /* --ifm-color-primary-darker: #744487; */
+  /* --ifm-color-primary-darkest: #693E7B; */
+  /* --ifm-color-primary-light: #A370B7; */
+  /* --ifm-color-primary-lighter: #BD91D1; */
+  /* --ifm-color-primary-lightest: #D6B2EB; */
+
+
+    /* --color-primary: #D6B2EB; */
+    /* --color-primary1: #A370B7; */
+    /* --color-primary2: #804B95; */
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-white: #EEE7DD;
+  --ifm-color-black: #0A0A0B;
+  --ifm-color-gray-0: var(--ifm-color-white);
+  --ifm-color-gray-100: #EEE7DD;
+  --ifm-color-gray-200: #D4CDC5;
+  --ifm-color-gray-300: #B9B3AD;
+  --ifm-color-gray-400: #9E9995;
+  --ifm-color-gray-500: #837F7D;
+  --ifm-color-gray-600: #686565;
+  --ifm-color-gray-700: #4D4B4D;
+  --ifm-color-gray-800: #323135;
+  --ifm-color-gray-900: #29282A;
+  --ifm-color-gray-1000: var(--ifm-color-black);
+  --ifm-color-primary: #A370B7;
+  --ifm-color-primary-dark: #9F6AB4;
+  --ifm-color-primary-darker: #965CAD;
+  --ifm-color-primary-darkest: #8C52A3;
+  --ifm-color-primary-light: #B085C1;
+  --ifm-color-primary-lighter: #B992C8;
+  --ifm-color-primary-lightest: #C2A0CF;
+  --ifm-color-secondary: #CEB4A1;
+  --ifm-color-secondary-dark: #BD9B89;
+  --ifm-color-secondary-darker: #A47865;
+  --ifm-color-secondary-darkest: #8C6254;
+  --ifm-color-secondary-light: #DCC9BC;
+  --ifm-color-secondary-lighter: #E3D4CA;
+  --ifm-color-secondary-lightest: #EADFD7;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* --ifm-color-content: var(--ifm-color-gray-0); */
+}
+
+.footer--dark {
+  --ifm-footer-background-color: var(--ifm-color-gray-900);
+}
