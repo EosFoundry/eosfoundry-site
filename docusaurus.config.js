@@ -1,8 +1,33 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const sidebar = require('./sidebars.js')
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
+// const libraryDropdownItems = []
+// for (const itemName in sidebar) {
+//   console.log(sidebar[itemName])
+//   let dirName = sidebar[itemName][0].dirName
+//   let label = ''
+
+//   if (itemName === 'api') {
+//     label = 'API'
+//   } else {
+//     let words = dirName.split('-')
+//     words.forEach((word) => {
+//       label += word.charAt(0).toUpperCase() + word.slice(1)
+//       label += ' '
+//     })
+//     label = label.trim()
+//   }
+//   libraryDropdownItems.push({
+//     type: 'docSidebar',
+//     sidebarId: itemName,
+//     label: label
+//   })
+// }
+// console.log(libraryDropdownItems)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -27,6 +52,18 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 70,
+        max: 1030, // max resized image's size.
+        min: 640, // min resized image's size. if original is lower, use that size.
+        steps: 2, // the max number of images generated between min and max (inclusive)
+        disableInDev: false,
+      },
+    ],
+  ],
   presets: [
     [
       'classic',
@@ -37,7 +74,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/EosFoundry/makeshift-site/',
+            'https://github.com/EosFoundry/eosfoundry-site/blob/main/',
         },
         blog: {
           // showReadingTime: true,
@@ -56,19 +93,31 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+      },
       navbar: {
         title: 'eosfoundry.dev',
+        hideOnScroll: true,
         logo: {
           alt: 'EosFoundry Logo',
           src: 'img/logo.svg',
+          width: 64,
+          height: 64,
         },
         items: [
           {
-            type: 'doc',
-            docId: 'quickstart',
-            position: 'left',
+            type: 'docSidebar',
             label: 'Library',
+            position: 'left',
+            sidebarId: 'library',
           },
+          // {
+          //   type: 'dropdown',
+          //   position: 'left',
+          //   label: 'Library',
+          //   items: libraryDropdownItems
+          // },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/EosFoundry/',
