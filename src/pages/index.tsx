@@ -34,7 +34,7 @@ export default function Home(): JSX.Element {
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
-        <div className='container margin-top--md'>
+        <div className='container margin-bottom--xl'>
           <div className='row'>
             <div className='col col--2'></div>
             <div className='col col--8'>
@@ -47,7 +47,7 @@ export default function Home(): JSX.Element {
             <div className={styles.buttons}>
               <Link
                 className="button button--primary button--lg"
-                to="/docs/intro">
+                to="/docs/">
                 Read the Docs
               </Link>
             </div>

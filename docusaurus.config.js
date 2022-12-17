@@ -1,9 +1,23 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const sidebar = require('./sidebars.js')
+const sidebars = require('./sidebars.js')
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
+const libraryFooterItems = []
+// @ts-ignore
+sidebars.library.forEach((item) => {
+  console.log('but')
+  console.log(item)
+  if (typeof item !== 'string' && item.type === 'category') {
+    libraryFooterItems.push({
+      label: item.label,
+      to: '/docs/' + item.items[0].dirName + '/'
+    })
+  }
+})
+console.log(libraryFooterItems)
 
 // const libraryDropdownItems = []
 // for (const itemName in sidebar) {
@@ -37,7 +51,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -84,7 +98,10 @@ const config = {
           //   'https:github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [
+            require.resolve('./src/css/custom.css'),
+            require.resolve('./src/css/fonts.css'),
+          ]
         },
       }),
     ],
@@ -112,6 +129,16 @@ const config = {
             position: 'left',
             sidebarId: 'library',
           },
+          {
+            label: 'FAQ',
+            position: 'left',
+            to: 'docs/makeshift-faq',
+          },
+          {
+            label: 'Blag',
+            position: 'left',
+            to: 'blog'
+          },
           // {
           //   type: 'dropdown',
           //   position: 'left',
@@ -130,13 +157,8 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
+            title: 'Library',
+            items: libraryFooterItems,
           },
           {
             title: 'Community',

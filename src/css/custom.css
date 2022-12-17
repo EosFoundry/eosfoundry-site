@@ -4,15 +4,15 @@
  * work well for content-centric websites.
  */
 
+
 /* You can override the default Infima variables here. */
 :root {
+
+  --ifm-font-size-base: 110%;
   --ifm-color-primary: #BB3D16;
   --ifm-color-primary-dark: #AA3714;
-  --ifm-color-primary-darker: #9B3212
-  --ifm-color-primary-darkest: #8D2D10;
-  --ifm-color-primary-light: #C74E29
-  --ifm-color-primary-lighter: #E37452
-  --ifm-color-primary-lightest: #FF9A7A;
+  --ifm-color-primary-darker: #9B3212 --ifm-color-primary-darkest: #8D2D10;
+  --ifm-color-primary-light: #C74E29 --ifm-color-primary-lighter: #E37452 --ifm-color-primary-lightest: #FF9A7A;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-color-white: #EEE7DD;
@@ -28,19 +28,21 @@
   --ifm-color-gray-800: #323135;
   --ifm-color-gray-900: #29282A;
   --ifm-color-gray-1000: var(--ifm-color-black);
+  --ifm-font-family-base: 'Atkinson Hyperlegible', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
-  /* --ifm-color-primary: #925EA6; */
-  /* --ifm-color-primary-dark: #804B95; */
-  /* --ifm-color-primary-darker: #744487; */
-  /* --ifm-color-primary-darkest: #693E7B; */
-  /* --ifm-color-primary-light: #A370B7; */
-  /* --ifm-color-primary-lighter: #BD91D1; */
-  /* --ifm-color-primary-lightest: #D6B2EB; */
+
+/* --ifm-color-primary: #925EA6; */
+/* --ifm-color-primary-dark: #804B95; */
+/* --ifm-color-primary-darker: #744487; */
+/* --ifm-color-primary-darkest: #693E7B; */
+/* --ifm-color-primary-light: #A370B7; */
+/* --ifm-color-primary-lighter: #BD91D1; */
+/* --ifm-color-primary-lightest: #D6B2EB; */
 
 
-    /* --color-primary: #D6B2EB; */
-    /* --color-primary1: #A370B7; */
-    /* --color-primary2: #804B95; */
+/* --color-primary: #D6B2EB; */
+/* --color-primary1: #A370B7; */
+/* --color-primary2: #804B95; */
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-white: #EEE7DD;
