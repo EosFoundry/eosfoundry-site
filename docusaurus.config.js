@@ -8,8 +8,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const libraryFooterItems = []
 // @ts-ignore
 sidebars.library.forEach((item) => {
-  console.log('but')
-  console.log(item)
   if (typeof item !== 'string' && item.type === 'category') {
     libraryFooterItems.push({
       label: item.label,
@@ -67,6 +65,7 @@ const config = {
   },
 
   plugins: [
+    'docusaurus-plugin-sass',
     [
       '@docusaurus/plugin-ideal-image',
       {
@@ -99,8 +98,8 @@ const config = {
         },
         theme: {
           customCss: [
-            require.resolve('./src/css/custom.css'),
-            require.resolve('./src/css/fonts.css'),
+            require.resolve('./src/css/custom.scss'),
+            require.resolve('./src/css/fonts.scss'),
           ]
         },
       }),
@@ -138,6 +137,11 @@ const config = {
             label: 'Blag',
             position: 'left',
             to: 'blog'
+          },
+          {
+            label: 'Shop',
+            position: 'left',
+            to: 'shop'
           },
           // {
           //   type: 'dropdown',

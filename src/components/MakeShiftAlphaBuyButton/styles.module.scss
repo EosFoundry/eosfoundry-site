@@ -1,0 +1,133 @@
+.buy-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  width: fit-content;
+  padding: 1px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.buy-button {
+  box-shadow: none;
+  display: inline;
+  height: 38px;
+  padding-top: 0px;
+  padding-bottom: 4px;
+  width: 150px;
+  cursor: pointer;
+
+  font-weight: 700;
+  font-size: 1rem;
+
+  background-color: var(--ifm-color-primary-darkest);
+  color: var(--ifm-color-secondary-lighter);
+
+  border-color: var(--ifm-color-primary-darkest);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: rgba(0, 0, 0, 0);
+
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  transition-duration: 0.2s;
+
+  &:hover {
+    background-color: var(--ifm-color-primary-lighter);
+    color: var(--ifm-color-emphasis-100);
+
+  }
+
+  // margin: 0px;
+}
+
+.total {
+  width: 100%;
+  padding-left: 10%;
+  font-size: 18px;
+  margin-top: 15px;
+  font-family: monospace;
+}
+
+.big-price {
+  display: block;
+  font-family: monospace;
+
+  font-size: 26px;
+  text-align: right;
+
+  // max-width: 150px;
+  margin: 0px;
+  margin-right: 12px;
+  margin-top: 8px;
+}
+
+.shipping-text {
+  margin-top: 8px;
+  font-size: 18px;
+  font-family: monospace;
+}
+
+.num-field-wrapper {
+  display: flex;
+  width: 150px;
+}
+
+// .num-field {
+//   width: 35px;
+// }
+
+.num-field {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  display: inline;
+  box-shadow: none;
+
+  height: 28px;
+
+  border-radius: 0px;
+  border-color: var(--ifm-color-primary-darkest);
+  border-style: solid;
+  border-width: 0px;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+
+  padding: 0px;
+  padding-left: 38px;
+  margin: 0px;
+  width: 100%;
+
+  font-size: 20px;
+}
+
+.num-field-btn-decrement {
+  border-color: var(--ifm-color-primary-darkest);
+  border-style: solid;
+  box-shadow: none;
+  margin: 0px;
+  height: 28px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 0px;
+  border-top-left-radius: 6px;
+}
+
+.num-field-btn-increment {
+  border-color: var(--ifm-color-primary-darkest);
+  border-style: solid;
+  box-shadow: none;
+  margin: 0px;
+  height: 28px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 0px;
+  border-top-right-radius: 6px;
+}
