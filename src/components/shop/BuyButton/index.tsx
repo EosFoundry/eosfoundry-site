@@ -1,58 +1,39 @@
 import React from 'react';
 // import styled from 'styled-components'
 import styles from './styles.module.scss'
+import { checkoutKit, getItem, ItemCategory } from '@site/src/utils/relay';
 
 
 import { shopifyApi, LATEST_API_VERSION, ClientType } from '@shopify/shopify-api';
-import { getShopify } from '../../utils/shopifyLoader';
 
-export default function ShopifyBuyButton() {
+export default function BuyButton(props: {
+  itemCategory: ItemCategory,
+  itemHandle: string
+}) {
   const [loading, setLoading] = React.useState(true);
   const [quantity, setQuantity] = React.useState(1);
   const [price, setPrice] = React.useState(69);
-  const [shopify, setShopify] = React.useState({
-    client: {} as any,
-    checkout: {} as any,
-    makeShiftAlpha: {} as any,
-  });
+  const [buyTarget, setBuyTarget] = React.useState({} as any);
 
   // console.log(styles)
 
   React.useEffect(() => {
-    getShopify()
-      .then((s) => {
-        // console.log('returned:')
-        // console.log(s);
-        let cl = s.client;
-        let ch = s.checkout; // wacky local variable shenanigans
-        let mksft = s.items['makeshift-alpha'];
-        setShopify({
-          client: cl,
-          checkout: ch,
-          makeShiftAlpha: mksft,
-        })
-        setLoading(false);
-      }).catch((e) => {
-        console.log(e);
-      });
+    getItem(props.itemCategory, props.itemHandle)
+      .then((product) => {
+        setBuyTarget(product)
+        setPrice(parseFloat(product.price.amount))
+        setLoading(false)
+      })
   }, [])
 
   const redirectToCheckout = () => {
-    setLoading(true);
-    shopify.client.checkout.addLineItems(shopify.checkout.id, [
-      {
-        variantId: shopify.makeShiftAlpha.id,
-        quantity: quantity,
+    switch (props.itemCategory) {
+      case 'kits': {
+        checkoutKit(props.itemHandle, quantity).then(checkout => {
+          window.open(checkout.webUrl).focus();
+        })
       }
-    ]).then((updatedCheckout) => {
-      // window.open(updatedCheckout.webUrl);
-      window.location.href = updatedCheckout.webUrl;
-
-    }).catch((e) => {
-      console.log(e);
-    }).finally(() => {
-      setLoading(false);
-    })
+    }
   };
 
 
@@ -92,21 +73,21 @@ export default function ShopifyBuyButton() {
         >
           Place Order
         </button>
-        <p className={styles['total']}>
+        {/* <p className={styles['total']}>
           Total:
-        </p>
+        </p> */}
         <div className={styles['big-price']}>
           CAD {(() => {
-            if (shopify.makeShiftAlpha.price === undefined) {
+            if (loading) {
               return "..."
             } else {
-              return quantity * shopify.makeShiftAlpha.price.amount
+              return quantity * price
             }
           })()}
           <br />
-          +shipping *
+          +shipping*
           <br />
-          +tax *
+          +tax*
         </div>
         <p className={styles['shipping-text']}>
           * depends on location

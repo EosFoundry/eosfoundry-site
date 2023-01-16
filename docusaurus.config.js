@@ -46,6 +46,9 @@ const config = {
   title: 'EosFoundry',
   tagline: 'let\'s get sh*ft done',
   url: 'https://eosfoundry.dev',
+  customFields: {
+    hostname: process.env.NODE_ENV === 'production'? 'https://eosfoundry.dev': 'http://localhost:8000'
+  },
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
