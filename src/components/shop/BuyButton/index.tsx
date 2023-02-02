@@ -71,7 +71,7 @@ export default function BuyButton(props: {
           disabled={loading}
           onClick={redirectToCheckout}
         >
-          Place Order
+          Place Order via Shopify
         </button>
         {/* <p className={styles['total']}>
           Total:

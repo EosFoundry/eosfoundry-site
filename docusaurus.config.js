@@ -1,9 +1,11 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const sidebars = require('./sidebars.js')
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const sidebars = require('./sidebars.js')
+// const navbar = require('./navbar.js')
+// const footer = require('./footer.js')
 
 const libraryFooterItems = []
 // @ts-ignore
@@ -17,47 +19,16 @@ sidebars.library.forEach((item) => {
 })
 console.log(libraryFooterItems)
 
-// const libraryDropdownItems = []
-// for (const itemName in sidebar) {
-//   console.log(sidebar[itemName])
-//   let dirName = sidebar[itemName][0].dirName
-//   let label = ''
-
-//   if (itemName === 'api') {
-//     label = 'API'
-//   } else {
-//     let words = dirName.split('-')
-//     words.forEach((word) => {
-//       label += word.charAt(0).toUpperCase() + word.slice(1)
-//       label += ' '
-//     })
-//     label = label.trim()
-//   }
-//   libraryDropdownItems.push({
-//     type: 'docSidebar',
-//     sidebarId: itemName,
-//     label: label
-//   })
-// }
-// console.log(libraryDropdownItems)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'EosFoundry',
+  title: 'Home of the MakeShift',
   tagline: 'let\'s get sh*ft done',
   url: 'https://eosfoundry.dev',
-  customFields: {
-    hostname: process.env.NODE_ENV === 'production'? 'https://eosfoundry.dev': 'http://localhost:8000'
-  },
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'EosFoundry', // Usually your GitHub org/user name.
-  projectName: 'makeshift-site', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -67,6 +38,10 @@ const config = {
     locales: ['en'],
   },
 
+  markdown: {
+    mermaid: true
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   plugins: [
     'docusaurus-plugin-sass',
     [
@@ -79,6 +54,17 @@ const config = {
         disableInDev: false,
       },
     ],
+    async function tailwindPlugin(context, options) {
+      return {
+        name: "docusaurus-tailwindcss",
+        configurePostCss(postcssOptions) {
+          // Appends TailwindCSS and AutoPrefixer.
+          postcssOptions.plugins.push(require("tailwindcss"));
+          postcssOptions.plugins.push(require("autoprefixer"));
+          return postcssOptions;
+        },
+      }
+    },
   ],
   presets: [
     [
@@ -101,7 +87,7 @@ const config = {
         },
         theme: {
           customCss: [
-            require.resolve('./src/css/custom.scss'),
+            require.resolve('./src/css/custom.css'),
             require.resolve('./src/css/fonts.scss'),
           ]
         },
@@ -110,13 +96,18 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    /** type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       colorMode: {
         defaultMode: 'dark',
       },
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+      },
       navbar: {
-        title: 'eosfoundry.dev',
+        // title: 'Home',
         hideOnScroll: true,
         logo: {
           alt: 'EosFoundry Logo',
@@ -127,48 +118,51 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            label: 'Library',
+            label: 'Docs',
             position: 'left',
             sidebarId: 'library',
           },
           {
-            label: 'FAQ',
+            label: 'Overview',
             position: 'left',
-            to: 'docs/makeshift-faq',
+            to: '/docs/overview'
           },
           {
-            label: 'Blag',
+            label: 'Get a MakeShift',
+            position: 'left',
+            to: 'shop'
+          },
+          {
+            label: 'Get the Software',
+            position: 'left',
+            to: 'software'
+          },
+          {
+            label: 'Blog',
             position: 'left',
             to: 'blog'
           },
           {
-            label: 'Shop',
-            position: 'left',
+            label: 'Support Us',
+            position: 'right',
             to: 'shop'
           },
-          // {
-          //   type: 'dropdown',
-          //   position: 'left',
-          //   label: 'Library',
-          //   items: libraryDropdownItems
-          // },
-          // {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/EosFoundry/',
             label: 'GitHub',
+            className: 'header-github-link',
             position: 'right',
           },
         ],
       },
       footer: {
-        style: 'dark',
         links: [
           {
             title: 'Library',
             items: libraryFooterItems,
           },
           {
-            title: 'Community',
+            title: 'Follow Us',
             items: [
               // {
               //   label: 'Stack Overflow',
@@ -178,27 +172,49 @@ const config = {
                 label: 'Discord',
                 href: 'https://discordapp.com/invite/hPw4j3vfCT',
               },
-              // {
-              //   label: 'Twitter',
-              //   href: 'https://twitter.com/docusaurus',
-              // },
+              {
+                label: 'Twitch',
+                href: 'https://www.twitch.tv/eosfoundry',
+              },
+              {
+                label: 'Instagram',
+                href: 'https://www.instagram.com/eosfoundry/',
+              },
             ],
           },
-          // {
-          //   title: 'More',
-          //   items: [
-          //     {
-          //       label: 'Blog',
-          //       to: '/blog',
-          //     },
-          //     {
-          //       label: 'GitHub',
-          //       href: 'https://github.com/facebook/docusaurus',
-          //     },
-          //   ],
-          // },
+          {
+            title: 'Eos Foundry',
+            items: [
+              {
+                label: 'About Us',
+                to: 'about-us'
+              },
+              {
+                label: 'Get In Touch',
+                href: 'mailto:hello@eosfoundry.dev',
+              },
+            ],
+          },
+          {
+            title: 'Legal',
+            items: [
+              {
+                label: 'Privacy',
+                to: 'privacy'
+              },
+              {
+                label: 'Terms of Service',
+                to: 'terms'
+              },
+              {
+                label: 'Shipping, Refunds, Return',
+                to: 'shipping-refunds-returns'
+              }
+            ],
+          },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} EosFoundry Ltd. Built with Docusaurus.`,
+
       },
       prism: {
         theme: lightCodeTheme,

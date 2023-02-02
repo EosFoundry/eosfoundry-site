@@ -1,7 +1,7 @@
 ---
 title: FAQ
 ---
-# Frequenly Asked Questions
+# Frequently Asked Questions
 
 ## How can I support MakeShift?
 

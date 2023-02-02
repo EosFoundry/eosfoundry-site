@@ -29,10 +29,10 @@ export default function Shop() {
 
   return (
     <Layout>
-      <div className='container  margin-top--xl'>
+      <div className='container margin-top--lg'>
         <div className='row'>
-          <div className='col col--2'></div>
-          <div className='col col--6'>
+          <div className='col col--1'></div>
+          <div className='col col--7'>
             <h1>MakeShift Alpha Kit - Without Teensy</h1>
             <p>
               We really wanted to put a Teensy 4.0 in here.
@@ -55,8 +55,8 @@ export default function Shop() {
       </div>
       <div className='container margin-bottom--xl'>
         <div className='row'>
-          <div className='col col--2'></div>
-          <div className='col col--6'>
+          <div className='col col--1'></div>
+          <div className='col col--7'>
 
             <h2>What's in the Kit?</h2>
             <p>
@@ -81,7 +81,6 @@ export default function Shop() {
               })()}
             </div>
           </div>
-          <div className='col col--4'></div>
         </div>
       </div>
     </Layout>

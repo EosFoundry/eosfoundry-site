@@ -7,21 +7,12 @@ import Layout from '@theme/Layout';
 import styles from './index.module.css';
 import { setHostname } from '../utils/relay';
 
+import MakeShift3 from '/img/MakeShift4.jpg'
+
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx('hero shadow-lw', styles.heroBanner)}>
-      <div className='container'>
-        <div className='row'>
-          <div className='col col--2'></div>
-          <div className='col col--8'>
-            <h1 className="hero__title">MakeShift</h1>
-            <p className="hero__subtitle">get sh*ft done</p>
-
-          </div>
-          <div className='col col--2'></div>
-        </div>
-      </div>
     </header>
   );
 }
@@ -30,27 +21,95 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout title={`${siteConfig.title}`} >
-      <HomepageHeader />
       <main>
-        <div className='container margin-bottom--xl'>
+        <div className='container mt-8 mb-16'>
           <div className='row'>
-            <div className='col col--2'></div>
-            <div className='col col--8'>
+            <div className='col col--8 col--offset-2'>
+              <img
+                className='border-0 border-solid rounded-xl
+                outline outline-2 outline-stone-600'
+                src='/img/MakeShift5.jpg' />
+              <div className='row ml-0 mt-6'>
+                <img className='h-14 mr-6' src='/img/MakeShiftLogo.png' />
+                <h1 className="hero__title"> get sh*ft done</h1>
+              </div>
               <p>
-                Streamers, Designers, Musicians, Engineers - Makers today use a whole arsenal of software tools to create our works. In doing so, we develop incredibly unique workflows to become faster, and more efficient.
+                The MakeShift is a macro system that is entirely hackable from the hardware up to the interface.
               </p>
               <p>
-                The MakeShift aims to open the door for Makers to go even further beyond without making any assumptions about the tools being used - to compress long tasks down to a single push of a button.
+                It aims to open the door for Makers to go even further
+                - compressing long tasks down to a single push of a button.
               </p>
-              <div className={styles.buttons}>
-                <Link
-                  className="button button--primary button--lg"
-                  to="/docs/">
-                  Read the Docs
-                </Link>
+            </div>
+          </div>
+          <div className='container
+            margin-top--xl margin-bottom--md
+            '>
+            <h2 className='text-center text-4xl'>
+              QUICK LINKS
+            </h2>
+            <div className='grid
+              grid-cols-1 grid-cols gap-4
+              md:grid-cols-3
+
+              sm:mx-5
+              lg:mx-36
+              xl:mx-48'>
+              <div>
+                <div className='card'>
+                  <div className='card__header'>
+                    <h3> Got a MakeShift? </h3>
+                  </div>
+                  <div className='card__header'>
+                    <p>
+                      Install the software and play around with the editor!
+                    </p>
+                  </div>
+                  <div className='card__footer'>
+                    <Link className="button button--primary button--block text-xl"
+                      to="/software/">
+                      DOWNLOAD
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className='card'>
+                  <div className='card__header'>
+                    <h3> Need to know more? </h3>
+                  </div>
+                  <div className='card__body'>
+                    <p>
+                      Our documentation is a good place to get started!
+                    </p>
+                  </div>
+                  <div className='card__footer'>
+                    <Link className="button button--primary button--block text-xl"
+                      to="/docs/overview">
+                      OVERVIEW
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className=''>
+                <div className='card'>
+                  <div className='card__header'>
+                    <h3> Want to help build? </h3>
+                  </div>
+                  <div className='card__body'>
+                    <p>
+                      From firmware to software, all our code is on GitHub.
+                    </p>
+                  </div>
+                  <div className='card__footer'>
+                    <Link className="button button--primary button--block text-xl"
+                      href="https://github.com/EosFoundry/makeshift-ctrl">
+                      SOURCE
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className='col col--2'></div>
           </div>
         </div>
       </main>

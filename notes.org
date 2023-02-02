@@ -1,0 +1,5 @@
+#+title: Documentation Untangling
+
+* How to document UI features?
+
+Should ui features be 'self documenting'?

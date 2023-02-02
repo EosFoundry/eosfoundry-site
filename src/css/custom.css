@@ -4,20 +4,25 @@
  * work well for content-centric websites.
  */
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 /* You can override the default Infima variables here. */
 :root {
 
-  --ifm-font-size-base: 110%;
-  --ifm-color-primary: #BB3D16;
-  --ifm-color-primary-dark: #AA3714;
-  --ifm-color-primary-darker: #9B3212;
-  --ifm-color-primary-darkest: #8D2D10;
-  --ifm-color-primary-light: #C74E29;
-  --ifm-color-primary-lighter: #E37452;
-  --ifm-color-primary-lightest: #FF9A7A;
+  --navbar-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --ifm-font-size-base: 105%;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-primary: #BB3D16;
+  --ifm-color-primary-light: #AA3714;
+  --ifm-color-primary-lighter: #9B3212;
+  --ifm-color-primary-lightest: #8D2D10;
+  --ifm-color-primary-dark: #C74E29;
+  --ifm-color-primary-darker: #E37452;
+  --ifm-color-primary-darkest: #FF9A7A;
   --ifm-color-white: #EEE7DD;
   --ifm-color-black: #0A0A0B;
   --ifm-color-gray-0: var(--ifm-color-white);
@@ -32,22 +37,19 @@
   --ifm-color-gray-900: #29282A;
   --ifm-color-gray-1000: var(--ifm-color-black);
   --ifm-font-family-base: 'Atkinson Hyperlegible', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+  --header-github-icon-url: url('/img/github-mark.svg');
+  --footer-color: var(--ifm-color-black);
+  --footer-link-color: var(--ifm-color-black);
+  --footer-title-color: var(--ifm-color-black);
+  --footer-background-color: var(--ifm-color-gray-100);
 }
 
-/* --ifm-color-primary: #925EA6; */
-/* --ifm-color-primary-dark: #804B95; */
-/* --ifm-color-primary-darker: #744487; */
-/* --ifm-color-primary-darkest: #693E7B; */
-/* --ifm-color-primary-light: #A370B7; */
-/* --ifm-color-primary-lighter: #BD91D1; */
-/* --ifm-color-primary-lightest: #D6B2EB; */
 
 
-/* --color-primary: #D6B2EB; */
-/* --color-primary1: #A370B7; */
-/* --color-primary2: #804B95; */
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
+  --navbar-shadow: 0 2px 18px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   --ifm-color-white: #EEE7DD;
   --ifm-color-black: #0A0A0B;
   --ifm-color-gray-0: var(--ifm-color-white);
@@ -76,21 +78,75 @@
   --ifm-color-secondary-lighter: #E3D4CA;
   --ifm-color-secondary-lightest: #EADFD7;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  /* --ifm-color-content: var(--ifm-color-gray-0); */
+
+  --footer-color: var(--ifm-color-gray-0);
+  --footer-link-color: var(--ifm-color-gray-0);
+  --footer-title-color: var(--ifm-color-gray-0);
+  --footer-background-color: var(--ifm-color-gray-900);
+  --header-github-icon-url: url('/img/github-mark-white.svg');
 }
 
-.footer--dark {
-  --ifm-footer-background-color: var(--ifm-color-gray-900);
+.navbar {
+  box-shadow: var(--navbar-shadow);
+}
+
+.footer {
+  box-shadow: var(--navbar-shadow);
+}
+
+.footer
+.footer--dark{
+  --ifm-footer-color: var(--footer-color);
+  --ifm-footer-link-color: var(--footer-color);
+  --ifm-footer-title-color: var(--footer-title-color);
+  --ifm-footer-background-color: var(--footer-background-color);
+}
+
+.footer__break {
+  width: 100%;
+  height: 1px;
+  margin: auto;
+  background-color: #FF9A7A;
+}
+
+.header-github-link {
+  display:flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+
+.header-github-link::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background: var(--header-github-icon-url);
+  background-size: contain;
+  margin-right: 8px;
 }
 
 h1,
-h2 {
-  color: var(--ifm-color-primary-lighter);  
+h2,
+h3 {
+  color: var(--ifm-color-primary-light);
+  font-weight: 700;
 }
 
-h1{
-  font-size: 2.5rem;
+h1 {
+  color: var(--ifm-color-primary);
+  font-size: 3rem;
 }
-h2{
-  font-size: 1.8rem;
+
+h2 {
+  font-size: 2rem;
+}
+
+
+.button{
+  color: var(--ifm-font-color-base);
+  background-color: var(--ifm-color-primary-darker);
+}
+
+.button:hover {
+  background-color: var(--ifm-color-primary-lightest);
 }
