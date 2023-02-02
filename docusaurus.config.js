@@ -145,7 +145,7 @@ const config = {
           {
             label: 'Support Us',
             position: 'right',
-            to: 'shop'
+            to: 'support'
           },
           {
             href: 'https://github.com/EosFoundry/',
@@ -164,10 +164,6 @@ const config = {
           {
             title: 'Follow Us',
             items: [
-              // {
-              //   label: 'Stack Overflow',
-              //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              // },
               {
                 label: 'Discord',
                 href: 'https://discordapp.com/invite/hPw4j3vfCT',
@@ -175,6 +171,10 @@ const config = {
               {
                 label: 'Twitch',
                 href: 'https://www.twitch.tv/eosfoundry',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://www.twitter.com/EosFoundry',
               },
               {
                 label: 'Instagram',
@@ -214,7 +214,6 @@ const config = {
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} EosFoundry Ltd. Built with Docusaurus.`,
-
       },
       prism: {
         theme: lightCodeTheme,
