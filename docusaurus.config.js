@@ -1,9 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-const sidebars = require('./sidebars.js')
+import { themes as prismThemes } from 'prism-react-renderer'
+import sidebars from './sidebars.js'
 // const navbar = require('./navbar.js')
 // const footer = require('./footer.js')
 
@@ -25,7 +24,11 @@ const config = {
   title: 'Home of the MakeShift',
   tagline: 'let\'s get sh*ft done',
   url: 'https://eosfoundry.dev',
+  organizationName: "EosFoundry",
+  projectName: "eosfoundry-site",
+  deploymentBranch: "main",
   baseUrl: '/',
+  trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
@@ -72,9 +75,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          sidebarPath: './sidebars.js',
           editUrl:
             'https://github.com/EosFoundry/eosfoundry-site/blob/main/',
         },
@@ -157,7 +158,7 @@ const config = {
       },
       footer: {
         links: [
-          {
+  {
             title: 'Library',
             items: libraryFooterItems,
           },
@@ -216,8 +217,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} EosFoundry Ltd. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
       },
     }),
 };
