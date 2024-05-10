@@ -127,11 +127,11 @@ const config = {
             position: 'left',
             to: '/docs/overview'
           },
-          {
-            label: 'Get a MakeShift',
-            position: 'left',
-            to: 'shop'
-          },
+          // {
+          //   label: 'Get a MakeShift',
+          //   position: 'left',
+          //   to: 'shop'
+          // },
           {
             label: 'Get the Software',
             position: 'left',

@@ -5,9 +5,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
 import styles from './index.module.css';
-import { setHostname } from '../utils/relay';
-
-import MakeShift3 from '/img/MakeShift4.jpg'
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
